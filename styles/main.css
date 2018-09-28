@@ -1,0 +1,22 @@
+body{
+  background-color: #3f3f3f;
+}
+
+h2 {
+  color: white;
+}
+
+label {
+  color: aqua;
+}
+
+button[type=submit]{
+  background-color: #4c4cff;
+  color: white;
+  border-width: none;
+}
+
+button[type=delete] {
+  background-color: #2f2f2f;
+  color: white;
+}

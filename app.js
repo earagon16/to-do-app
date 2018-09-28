@@ -3,7 +3,7 @@ function onReady() {
   const newToDoText = document.getElementByID('newToDoText');
   const toDoList = document.getElementByID('toDoList');
 
-  addToDoForm.addEventListener('submit'), event => {
+  addToDoForm.addEventListener('submit,'() {
     event.preventDefault();
     let title = newToDoText.value;
     let newLi = document.createElement('li');
@@ -15,7 +15,7 @@ function onReady() {
     toDoList.appendChild(newLi);
     newToDoText.value='';
 
-  };
+  });
 }
 
 window.onload = function() {
