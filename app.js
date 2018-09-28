@@ -10,6 +10,9 @@ function onReady() {
     let newLi = document.createElement('li');
     let checkbox = document.createElement('input');
     checkbox.type = "checkbox";
+    let deleteBtn = document.createElement('delete');
+    deleteBtn.innerHTML = 'delete';
+
 
     newLi.textContent = title;
     newLi.appendChild(checkbox);
