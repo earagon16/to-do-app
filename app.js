@@ -30,12 +30,10 @@ function onReady(){
       newLi.appendChild(checkbox);
 
       function deleteItem() {
-        const deleteBtn = document.getElementById('deleteBtn');
-        deleteBtn.addEventListener('delete',()  => {
-          let deleteBtn = document.getElementById('li');
-          deleteBtn.parentNode.removeChild(deleteBtn);
-
-
+        const deleteBtn = document.getElementById('button');
+        deleteBtn.innerHTML = '<span>Delete</span>';
+        deleteBtn.addEventListener('click',()  => {
+          toDos = deleteToDo(toDo.id);
           renderTheUi();
           const result = toDos.filter(id => toDo.id)
         })
