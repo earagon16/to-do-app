@@ -1,34 +1,48 @@
-function onReady() {
+function onReady(){
+  const toDos = [];
   const addToDoForm = document.getElementById('addToDoForm');
-  const newToDoText = document.getElementById('newToDoText');
-  const toDoList = document.getElementById('toDoList');
-}
+  let imConfused = toDos.length || 0;
+
+  function createNewToDo(){
+    const newToDoText = document.getElementById('newToDoText');
+    toDos.push({
+      title: newToDoText.value,
+      complete: false,
+      id: ++id,
+    });
+    newToDoText.value = '';
+  }
 
   addToDoForm.addEventListener('submit', event => {
     event.preventDefault();
-    let title = newToDoText.value;
-    let newLi = document.createElement('li');
-    let checkbox = document.createElement('input');
-    checkbox.type = "checkbox";
-    let deleteBtn = document.createElement('delete');
-    deleteBtn.innerHTML = 'delete';
-
-
-    newLi.textContent = title;
-    newLi.appendChild(checkbox);
-    toDoList.appendChild(newLi);
-    newToDoText.value = '';
-
+    createNewToDo();
+    renderTheUI();
   })
+  function renderTheUI(){
+    const toDoList = document.getElementById('toDoList');
+    toDoList.textContent = '';
 
-  function deleteItem() {
-    const deleteBtn = document.getElementById('deleteBtn');
-    deleteBtn.addEventListener('delete',()  => {
-      let deleteBtn = document.getElementById('li');
-      deleteBtn.parentNode.removeChild(deleteBtn);
+    toDos.forEach(function(toDo){
+      const newLi = document.createElement('li');
+      checkbox.type = "checkbox";
+      newLi.textContent = toDo.title;
+      newLi.appendChild(checkbox);
 
-    })
+      function deleteItem() {
+        const deleteBtn = document.getElementById('deleteBtn');
+        deleteBtn.addEventListener('delete',()  => {
+          let deleteBtn = document.getElementById('li');
+          deleteBtn.parentNode.removeChild(deleteBtn);
+
+
+          renderTheUi();
+          const result = toDos.filter(id => toDo.id)
+        })
+      }
+
+    });
   }
+};
 
 window.onload = function() {
   onReady();
