@@ -1,7 +1,7 @@
 function onReady(){
   const toDos = [];
   const addToDoForm = document.getElementById('addToDoForm');
-  let imConfused = toDos.length || 0;
+  let id = toDos.length || 0;
 
   function createNewToDo(){
     const newToDoText = document.getElementById('newToDoText');
@@ -24,6 +24,7 @@ function onReady(){
 
     toDos.forEach(function(toDo){
       const newLi = document.createElement('li');
+      let checkbox = document.createElement('input');
       checkbox.type = "checkbox";
       newLi.textContent = toDo.title;
       newLi.appendChild(checkbox);
