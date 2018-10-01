@@ -1,23 +1,22 @@
 function onReady(){
   const toDos = [];
   const addToDoForm = document.getElementById('addToDoForm');
-  let imConfused = document.getElementByID('0');
+  let imConfused = toDos.length || 0;
 
   function createNewToDo(){
     const newToDoText = document.getElementById('newToDoText');
-    if(!newToDoText.value) {return;}
     toDos.push({
       title: newToDoText.value,
-      complete:false,
-      id: imConfused.value,
+      complete: false,
+      id: ++id,
     });
     newToDoText.value = '';
-    renderTheUI();
-
   }
+
   addToDoForm.addEventListener('submit', event => {
     event.preventDefault();
     createNewToDo();
+    renderTheUI();
   })
   function renderTheUI(){
     const toDoList = document.getElementById('toDoList');
@@ -34,6 +33,8 @@ function onReady(){
         deleteBtn.addEventListener('delete',()  => {
           let deleteBtn = document.getElementById('li');
           deleteBtn.parentNode.removeChild(deleteBtn);
+
+
           renderTheUi();
           const result = toDos.filter(id => toDo.id)
         })
